@@ -28,22 +28,7 @@
                                 <th>Created At</th>
                                 <th>Updated At</th>
                             </tr>
-                        </thead>
-
-                        <tbody>
-                        
-                        @foreach($userData as $key => $data)
-                            <tr>
-                                <th>{{$data->id}}</th>
-                                <th>{{$data->name}}</th>
-                                <th>{{$data->email}}</th>
-                                <th>{{$data->phone}}</th>
-                                <th>{{$data->created_at}}</th>
-                                <th>{{$data->updated_at}}</th> 
-                            </tr>
-                        @endforeach
-
-                        </tbody>
+                        </thead>                        
                     </table>            
                 </div>
             </div>
@@ -53,3 +38,22 @@
 @endsection
 
 
+@push('scripts')
+<script>
+$(function() {
+    $('#users-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: '{!! route('userData') !!}',
+        columns: [
+            { data: 'id', name: 'id' },
+            { data: 'name', name: 'name' },
+            { data: 'email', name: 'email' },
+            { data: 'phone', name: 'phone' },
+            { data: 'created_at', name: 'created_at' },
+            { data: 'updated_at', name: 'updated_at' }
+        ]
+    });
+});
+</script>
+@endpush

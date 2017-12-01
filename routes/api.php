@@ -17,4 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('home', 'HomeController@getUserData');
+Route::get('/home', 'DataTablesController@getIndex')->name('datatables'); 
+Route::get('/datatables.data','DataTablesController@anyData')->name('userData');

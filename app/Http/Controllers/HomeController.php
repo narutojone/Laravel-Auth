@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Datatables;
 
 use DB;
 use Auth;
@@ -26,9 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $id = Auth::user()->id;
-        $userData = DB::table('users')->get();
+        $id = Auth::user()->id;                
         $currentUser = DB::table('users')->where('id', $id)->get();
-        return view('home', compact('userData','currentUser'));
-    }   
+        return view('home', compact('currentUser'));
+    }  
 }

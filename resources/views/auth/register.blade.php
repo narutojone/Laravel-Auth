@@ -89,9 +89,7 @@
                                     Register
                                 </button>
                             </div>
-                        </div>
-
-                        
+                        </div>                       
 
                         <div class="modal fade" id="paymentModal" 
                         tabindex="-1" role="dialog" 
